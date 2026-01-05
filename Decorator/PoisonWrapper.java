@@ -18,6 +18,8 @@ public class PoisonWrapper extends EnemyDecorator {
 
 	@Override
 	public void attack() {
+		// Delegate so the wrapped enemy (and any inner decorators) can run first.
+		super.attack();
 		System.out
 				.println("Poisonous Zombie attacks with damage: " + this.getDamage() + " and speed: " + super.getSpeed()
 						+ " and has " + super.getHealth() + " health");

@@ -19,6 +19,8 @@ public class SpeedWrapper extends EnemyDecorator {
 
 	@Override
 	public void attack() {
+		// Delegate so the wrapped enemy (and any inner decorators) can run first.
+		super.attack();
 		System.out.println(
 				"Speed boosted Zombie attacks with damage: " + super.getDamage() + " and speed: " + this.getSpeed()
 						+ " and has " + super.getHealth() + " health");

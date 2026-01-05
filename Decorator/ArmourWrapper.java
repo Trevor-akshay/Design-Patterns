@@ -20,6 +20,10 @@ public class ArmourWrapper extends EnemyDecorator {
 
 	@Override
 	public void attack() {
+		// Important Decorator rule:
+		// Delegate first so other (inner) decorators / the base component can run.
+		// Then add armour-specific behaviour/output.
+		super.attack();
 		System.out.println("Armoured attacks with damage: " + super.getDamage() + " and speed: " + super.getSpeed()
 				+ " and has " + this.getHealth() + " health");
 	}
